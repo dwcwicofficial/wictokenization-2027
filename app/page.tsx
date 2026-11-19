@@ -18,15 +18,15 @@ export default function HomePage() {
             <Link href="/marketplace" className="btn-ghost">Browse Assets</Link>
           </div>
           <div className="mt-10 flex gap-8 text-sm text-wic-muted">
-            <div><strong className="text-wic-gold text-xl">$4.8M</strong><br />Cerritos live</div>
+            <div><strong className="text-wic-gold text-xl">$5,000,000</strong><br />CTTC live</div>
             <div><strong className="text-wic-green text-xl">142</strong><br />Investors</div>
             <div><strong className="text-wic-purple text-xl">3</strong><br />AI active</div>
           </div>
         </div>
         <div className="relative h-[480px]">
           <div className="glass absolute top-4 left-4 w-64 p-5">
-            <div className="text-xs text-wic-muted uppercase tracking-wider">Cerritos Station</div>
-            <div className="font-display text-3xl font-bold text-wic-gold mt-1">$4.8M</div>
+            <div className="text-xs text-wic-muted uppercase tracking-wider">CTTC Project</div>
+            <div className="font-display text-3xl font-bold text-wic-gold mt-1">$5,000,000</div>
             <div className="text-wic-green text-sm mt-1">+12.4% YTD</div>
             <div className="mt-3 h-1 bg-white/10 rounded"><div className="h-full w-[68%] bg-gradient-to-r from-wic-gold to-wic-green" /></div>
           </div>

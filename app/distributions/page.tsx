@@ -9,7 +9,7 @@ export default function DistributionsPage() {
     setSimulating(true);
     setResult(null);
     setTimeout(() => {
-      setResult("Simulation complete. $42,600 distributed to 142 verified investors. Till updated cap table. Brief drafted investor note — awaiting your check-in.");
+      setResult("Simulation complete. $42,600 distributed to 142 verified investors on the CTTC Project. Till updated cap table. Brief drafted investor note — awaiting your check-in.");
       setSimulating(false);
     }, 1800);
   };
@@ -22,8 +22,8 @@ export default function DistributionsPage() {
       <div className="glass p-6 mb-6">
         <div className="flex justify-between items-center">
           <div>
-            <div className="font-display text-xl">Cerritos Station · Q4</div>
-            <div className="text-sm text-wic-muted">Projected $42,600 · 142 holders</div>
+            <div className="font-display text-xl">CTTC Project · Q4</div>
+            <div className="text-sm text-wic-muted">40 acres Dunnigan County · Projected $42,600 · 142 holders</div>
           </div>
           <button onClick={runSim} disabled={simulating} className="btn-gold text-sm py-2 px-5">
             {simulating ? "Simulating…" : "Run Simulation"}

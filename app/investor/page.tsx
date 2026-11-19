@@ -17,9 +17,9 @@ export default function InvestorPortal() {
       {tab === "holdings" && (
         <div className="grid md:grid-cols-2 gap-4">
           <div className="glass p-6">
-            <div className="font-display text-2xl">Cerritos Station</div>
+            <div className="font-display text-2xl">CTTC Project</div>
             <div className="text-wic-gold text-3xl font-bold mt-2">$12,400</div>
-            <div className="text-sm text-wic-muted">8.2% yield · 68% of target</div>
+            <div className="text-sm text-wic-muted">40 acres · Dunnigan County, CA · 8.2% yield</div>
           </div>
           <div className="glass p-6">
             <div className="font-display text-2xl">Harbor View</div>

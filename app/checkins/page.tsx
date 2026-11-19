@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const pending = [
-  { id: 1, type: "Distribution", asset: "Cerritos Station", amount: "$42,600", agent: "Till", status: "Awaiting approval" },
+  { id: 1, type: "Distribution", asset: "CTTC Project", amount: "$42,600", agent: "Till", status: "Awaiting approval" },
   { id: 2, type: "Investor Update", asset: "Harbor View", agent: "Brief", status: "Draft ready" },
   { id: 3, type: "Transfer", asset: "Logistics Hub", amount: "12,000 tokens", agent: "Warden", status: "Compliance review" },
 ];
