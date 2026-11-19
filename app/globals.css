@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #050509;
+  --gold: #f7b733;
+  --accent-green: #5dff9a;
+  --accent-purple: #b58cff;
+}
+
+body {
+  background: #050509;
+  color: #f9fbff;
+}
+
+.glass {
+  @apply bg-wic-card/70 backdrop-blur-xl border border-white/10 rounded-lg shadow-soft;
+}
+
+.btn-gold {
+  @apply bg-gold-grad text-wic-dark font-semibold px-7 py-3 rounded-full shadow-gold transition-all hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(247,183,51,0.6)];
+}
+
+.btn-ghost {
+  @apply bg-transparent border border-white/10 px-6 py-2.5 rounded-full transition-all hover:border-wic-gold hover:text-wic-gold;
+}
