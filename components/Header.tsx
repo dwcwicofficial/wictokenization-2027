@@ -7,11 +7,12 @@ export default function Header() {
       <Link href="/" className="font-display text-xl font-bold tracking-tight">
         WIC<span className="text-wic-gold">TOKENIZATION</span>
       </Link>
-      <nav className="hidden lg:flex gap-4 text-sm text-wic-muted">
+      <nav className="hidden xl:flex gap-3 text-sm text-wic-muted">
         <Link href="/" className="hover:text-wic-gold">Home</Link>
         <Link href="/marketplace" className="hover:text-wic-gold">Marketplace</Link>
         <Link href="/studio" className="hover:text-wic-gold">Studio</Link>
         <Link href="/investor" className="hover:text-wic-gold">Investor</Link>
+        <Link href="/blockchain" className="hover:text-wic-gold">Blockchain</Link>
         <Link href="/compliance" className="hover:text-wic-gold">Compliance</Link>
         <Link href="/payments" className="hover:text-wic-gold">Payments</Link>
         <Link href="/optimize" className="hover:text-wic-gold">Optimize</Link>
