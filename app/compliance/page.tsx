@@ -18,6 +18,22 @@ const kycSteps = [
 
 export default function CompliancePage() {
   const [selected, setSelected] = useState("Reg D 506(c)");
+  const [queued, setQueued] = useState(false);
+
+  const queueScreening = () => {
+    setQueued(true);
+    const existing = JSON.parse(localStorage.getItem("wic-checkins") || "[]");
+    existing.push({
+      id: Date.now(),
+      type: "Full Screening",
+      asset: "CTTC Project",
+      amount: selected,
+      agent: "Warden",
+      status: "Awaiting approval — KYC/AML/OFAC run",
+      detail: `Exemption path: ${selected}. Full BSA/AML + OFAC + accreditation screening ready for review.`,
+    });
+    localStorage.setItem("wic-checkins", JSON.stringify(existing));
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
@@ -50,7 +66,13 @@ export default function CompliancePage() {
             </div>
           ))}
         </div>
-        <button className="btn-gold mt-6 text-sm">Run Full Screening & Queue for Check-in</button>
+        <button
+          onClick={queueScreening}
+          disabled={queued}
+          className="btn-gold mt-6 text-sm"
+        >
+          {queued ? "Queued in Check-ins" : "Run Full Screening & Queue for Check-in"}
+        </button>
       </div>
 
       <div className="glass p-6">

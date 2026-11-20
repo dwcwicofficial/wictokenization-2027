@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 const rails = [
   { name: "ACH", desc: "Bank transfer · 1–3 business days · low cost", icon: "🏦" },
@@ -17,6 +18,23 @@ const custodians = [
 ];
 
 export default function PaymentsPage() {
+  const [queued, setQueued] = useState(false);
+
+  const queueConfig = () => {
+    setQueued(true);
+    const existing = JSON.parse(localStorage.getItem("wic-checkins") || "[]");
+    existing.push({
+      id: Date.now(),
+      type: "Payment & Custody Setup",
+      asset: "CTTC Project",
+      amount: "ACH + Wire + USDC + Fireblocks",
+      agent: "Till",
+      status: "Awaiting approval — rails & custody configuration",
+      detail: "Enable ACH, Wire, USDC/USDT. Default custody: Fireblocks (MPC). Investor choice of self-custody or custodial.",
+    });
+    localStorage.setItem("wic-checkins", JSON.stringify(existing));
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
       <p className="text-wic-gold text-xs tracking-[0.2em] uppercase">Payments & Custody</p>
@@ -46,7 +64,13 @@ export default function PaymentsPage() {
         ))}
       </div>
 
-      <button className="btn-gold">Configure Payment & Custody for CTTC</button>
+      <button
+        onClick={queueConfig}
+        disabled={queued}
+        className="btn-gold"
+      >
+        {queued ? "Queued in Check-ins" : "Configure Payment & Custody for CTTC"}
+      </button>
     </div>
   );
 }
