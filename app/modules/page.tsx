@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 const activeModules = [
   { name: "CountryAllowModule", status: "Active", config: "US only (840)", lastTuned: "2d ago" },
@@ -18,6 +19,23 @@ const aiTemplates = [
 ];
 
 export default function ModulesPage() {
+  const [queued, setQueued] = useState<string[]>([]);
+
+  const queueTemplate = (name: string, description: string) => {
+    setQueued((prev) => [...prev, name]);
+    const existing = JSON.parse(localStorage.getItem("wic-checkins") || "[]");
+    existing.push({
+      id: Date.now(),
+      type: "New Module",
+      asset: "CTTC Project",
+      amount: name,
+      agent: "Warden",
+      status: "Awaiting approval — AI template",
+      detail: description,
+    });
+    localStorage.setItem("wic-checkins", JSON.stringify(existing));
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
       <p className="text-wic-gold text-xs tracking-[0.2em] uppercase">Compliance Modules</p>
@@ -48,7 +66,13 @@ export default function ModulesPage() {
             <div className="text-xs text-wic-gold uppercase">{t.category}</div>
             <div className="font-display mt-1">{t.name}</div>
             <p className="text-sm text-wic-muted mt-2">{t.description}</p>
-            <button className="btn-ghost text-xs mt-3 py-1.5 px-3">Generate & Queue for Check-in</button>
+            <button
+              onClick={() => queueTemplate(t.name, t.description)}
+              disabled={queued.includes(t.name)}
+              className="btn-ghost text-xs mt-3 py-1.5 px-3"
+            >
+              {queued.includes(t.name) ? "Queued in Check-ins" : "Generate & Queue for Check-in"}
+            </button>
           </div>
         ))}
       </div>
